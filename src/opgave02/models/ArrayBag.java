@@ -69,7 +69,7 @@ public class ArrayBag<E> implements Bag<E> {
                 }
             }
             if (temp != -1) {
-                for (int i = temp; i < size; i++) {
+                for (int i = temp; i < size - 1; i++) {
                     items[i] = items[i + 1];
                 }
                 items[size] = null;
@@ -100,7 +100,7 @@ public class ArrayBag<E> implements Bag<E> {
     @Override
     public boolean contains(E anEntry) {
         for (E item : items) {
-            if (item == anEntry) {
+            if (item.equals(anEntry)) {
                 return true;
             }
         }
