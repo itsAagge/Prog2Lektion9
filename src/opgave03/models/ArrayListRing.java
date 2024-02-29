@@ -1,6 +1,8 @@
 package opgave03.models;
 
 import java.util.ArrayList;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class ArrayListRing<T> implements Ring<T> {
     ArrayList<T> arrayList = new ArrayList<>();
@@ -82,5 +84,23 @@ public class ArrayListRing<T> implements Ring<T> {
     @Override
     public boolean isEmpty() {
         return arrayList.isEmpty();
+    }
+
+    public void map(Function<T, T> function) {
+        int currentItemIndex = arrayList.indexOf(getCurrentItem());
+        for (int i = 0; i < arrayList.size(); i++) {
+            arrayList.set(i, function.apply(arrayList.get(i)));
+        }
+        currentItem = arrayList.get(currentItemIndex);
+    }
+
+    public ArrayListRing<T> where(Predicate<T> predicate) {
+        ArrayListRing<T> ring = new ArrayListRing<>();
+        for (T t : arrayList) {
+            if (predicate.test(t)) {
+                ring.add(t);
+            }
+        }
+        return ring;
     }
 }

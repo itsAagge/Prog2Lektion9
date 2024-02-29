@@ -27,5 +27,9 @@ public class Opgave03 {
         stringRing.add("Anne");
         stringRing.add("Inge");
         stringRing.add("Rikke");
+        stringRing.map(a -> a + ".");
+        System.out.println("Lige nu burde currentItem være Rikke. Det er " + stringRing.getCurrentItem());
+        ArrayListRing<String> newRing = stringRing.where(a -> a.startsWith("R"));
+        System.out.println(newRing.size());
     }
 }

@@ -100,7 +100,7 @@ public class ArrayBag<E> implements Bag<E> {
     @Override
     public boolean contains(E anEntry) {
         for (E item : items) {
-            if (item.equals(anEntry)) {
+            if (item == anEntry) {
                 return true;
             }
         }
