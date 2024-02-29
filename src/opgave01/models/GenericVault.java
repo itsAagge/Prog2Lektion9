@@ -1,16 +1,16 @@
 package opgave01.models;
 
-public class IntegerVault {
-    private Integer secret;
+public class GenericVault<E> {
+    private E secret;
     private String password;
 
-    public IntegerVault(Integer secret, String password) {
+    public GenericVault(E secret, String password) {
         this.secret = secret;
         this.password = password;
     }
 
 
-    public Integer getSecret(String password) {
+    public E getSecret(String password) {
         if (password.equals(this.password)) {
             return secret;
         }
